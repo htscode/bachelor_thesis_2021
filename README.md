@@ -1,5 +1,5 @@
 # bachelor_thesis_2021
-This is the repository for my bachelor thesis with the title "Processing fast event-related fMRI for artifical neural network applications". 
+This is the repository for my bachelor thesis with the title "Processing fast event-related fMRI for artifical neural network applications". The thesis itself can be found under **Processing_fast_event_related_fMRI_data_for_Artificial_Neural_Network_Applications.pdf**
 
 ## MAIN PIPELINE 
 
@@ -35,7 +35,7 @@ All files can be found in the folders cc_cluster_version and CNN. Furthe results
 
 ### Normalization 
 
-**normalize.m* - Normalize preprocess fMRI scans to percent signal change [1], and apply SPM brain mask[3] 
+**normalize.m** - Normalize preprocess fMRI scans to percent signal change [1], and apply SPM brain mask[3] 
 
 ### Create Dataset 
 
@@ -86,6 +86,12 @@ The folder brute_force_results has the results of **brute_force_ROI.m** for ever
 - To get results such as in '/images/brute_force_results.png': plot(timearray,results)
 - To get variance such as in 'images/variance_brute_force_results.png': plot(timearray,variance(results'))
 - To get mean or median as in 'images/mean_median_15_brute_force_results.png':  plot(timearray,mean(results,2))
+
+## Files
+
+**smallvolume_face_roi.mat** - Region of interest (indexes)
+**roimnicord.mat** - MNI coordinates for region of interest
+**smallbrainmask.nii** - resized brain mask 
 
 
 ## References 
