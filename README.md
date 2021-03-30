@@ -19,23 +19,23 @@ All files can be found in the folders cc_cluster_version and CNN. Further result
 
 ### Brute force optimization 
 
-**brute_force_init.m**- Initialize brute force optimization for ROI variant, makes sure temporary RAM memory is used to increase the execution speed 
+**brute_force_init.m**- Initializes brute force optimization for ROI variant, makes sure temporary RAM memory is used to increase the execution speed 
 
-  - **brute_force_ROI.m** - calculate NSMD for a set range of time shifts  
+  - **brute_force_ROI.m** - calculates NSMD for a set range of time shifts  
       - **shifttrialsnew.m** -creates a new trial definition for every time shift
-      - **voxeldiffROI.m** - compute NSMD for all time shift in every voxel of a ROI
+      - **voxeldiffROI.m** - computes NSMD for all time shift in every voxel of a ROI
      
 ## Find the best shift 
 
-**findshift.m** - Find the best shift from the brute force results using variance, mean and median 
+**findshift.m** - Finds the best shift from the brute force results using variance, mean and median 
 
 ### Shifting
-**initshiftwithrest.m** - initialize shift with rest condition to optimization computaton 
- - **shiftwithrest.m** - creates new trial definition base on a time shift input and incoorperates rest as a condition
+**initshiftwithrest.m** - initializes shift with rest condition to optimization computation 
+ - **shiftwithrest.m** - creates new trial definition based on a time shift input and incoorperates rest as a condition
 
 ### Normalization 
 
-**normalize.m** - Normalize preprocess fMRI scans to percent signal change [1], and apply SPM brain mask[3] 
+**normalize.m** - Normalizes preprocess fMRI scans to percent signal change [1], and apply SPM brain mask[3] 
 
 ### Create Dataset 
 
@@ -74,14 +74,14 @@ The folder single_hardware_version includes single hardware system versions of t
 
 It further includes the following files: 
 
-**create_roi.m** - creates region of interest based of [4] 
+**create_roi.m** - creates region of interest based on [4] 
   - used by **normalize.m* 
 **downhillsimplex.m** - Downhill simplex optimization attempt 
 **forbetterffa.m** - Attempted optimization of the FFA voxel used in single voxel brute force  
 
 ## Brute force results 
 
-The folder brute_force_results has the results of **brute_force_ROI.m** for every participants
+The folder brute_force_results has the results of **brute_force_ROI.m** for every participant
 
 - To get results such as in '/images/brute_force_results.png': plot(timearray,results)
 - To get variance such as in 'images/variance_brute_force_results.png': plot(timearray,variance(results'))
