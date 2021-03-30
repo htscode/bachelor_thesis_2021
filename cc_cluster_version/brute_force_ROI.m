@@ -1,5 +1,5 @@
 function brute_force_ROI(subject,tsvfolder,outfolder,tmpscan)
-%% Function to calculate mean square difference for the conditions facs and scrambled in a certain boundary
+%% Function to calculate negative square mean difference for the conditions face and scrambled in a certain boundary
 %
 
 %% Set parameters
