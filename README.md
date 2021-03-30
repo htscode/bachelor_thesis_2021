@@ -1,16 +1,16 @@
 # bachelor_thesis_2021
-This is the repository for my bachelor thesis with the title "Processing fast event-related fMRI for artifical neural network applications". The thesis itself can be found under **Processing_fast_event_related_fMRI_data_for_Artificial_Neural_Network_Applications.pdf**
+This is the repository for my bachelor thesis with the title "Processing fast event-related fMRI for artificial neural network applications". The thesis itself can be found under **Processing_fast_event_related_fMRI_data_for_Artificial_Neural_Network_Applications.pdf**
 
 ## MAIN PIPELINE 
 
-Followingly the script of the main pipeline will be described, these are those scripts used to obtain the results presented in the Thesis. 
-All files can be found in the folders cc_cluster_version and CNN. Furthe results obtained from the brute force optimization can be found in the folder brute_force_results.
+Following the script of the main pipeline will be described, these are those scripts used to obtain the results presented in the Thesis. 
+All files can be found in the folders cc_cluster_version and CNN. Further results obtained from the brute force optimization can be found in the folder brute_force_results.
 
 ![pipeline pictue](https://github.com/htscode/bachelor_thesis_2021/blob/master/images/structure_thesis.png)
 
 ### SPM preprocessing 
 
-**slice init** - Initialises preprocessing, makes sure temporary RAM memory is used to increade the execution speed 
+**slice init** - Initialises preprocessing, makes sure temporary RAM memory is used to increase the execution speed 
 
 **slice_timing_corrected_fmri.m** - SPM preprocessing, including slice time correction,realignment, coregistration, normalization and smoothing
 
@@ -19,13 +19,13 @@ All files can be found in the folders cc_cluster_version and CNN. Furthe results
 
 ### Brute force optimization 
 
-**brute_force_init.m**- Initialize brute force optimization for ROI variant, makes sure temporary RAM memory is used to increade the execution speed 
+**brute_force_init.m**- Initialize brute force optimization for ROI variant, makes sure temporary RAM memory is used to increase the execution speed 
 
   - **brute_force_ROI.m** - calculate NSMD for a set range of time shifts  
       - **shifttrialsnew.m** -creates a new trial definition for every time shift
       - **voxeldiffROI.m** - compute NSMD for all time shift in every voxel of a ROI
      
-## Find best shift 
+## Find the best shift 
 
 **findshift.m** - Find the best shift from the brute force results using variance, mean and median 
 
@@ -39,7 +39,7 @@ All files can be found in the folders cc_cluster_version and CNN. Furthe results
 
 ### Create Dataset 
 
-**createDataset.m** - creates a dataset from the normalized data, optinally with all runs or just the first 3 runs, according to the format of [1]
+**createDataset.m** - creates a dataset from the normalized data, optionally with all runs or just the first 3 runs, according to the format of [1]
 
 ### CNN 
 
@@ -51,7 +51,7 @@ All files used for the convolutional neural network can be found in the folder C
 
 **saliencycalculation.ipynb** - Saliency map computation [1] (adapted to run on Cedar)
 
-**saliency_map_basic.ipynb**  - Vizualization of saliency maps and saving as NIfTI file (cannot be run on cedar, instead use a single hardware system)
+**saliency_map_basic.ipynb**  - Visualization of saliency maps and saving as NIfTI file (cannot be run on cedar, instead use a single hardware system)
 
 **cnnrequirements.txt** - requirements for running the CNN script on the Cedar division of Compute Canada [2]
 
@@ -68,9 +68,9 @@ All files used for the convolutional neural network can be found in the folder C
  -**optimization.m** - used by **simulated_annealing.m** to enable optimization without a classical function 
  -**outfun.m** - to monitor simulated annealing 
 
-## Single hardware sytstem version 
+## Single hardware system version 
 
-The folder single_hardware_version includes, single hardware system versions of the above presented. Note that these versions are for one pariticipant only. 
+The folder single_hardware_version includes single hardware system versions of the above presented. Note that these versions are for one participant only. 
 
 It further includes the following files: 
 
@@ -81,7 +81,7 @@ It further includes the following files:
 
 ## Brute force results 
 
-The folder brute_force_results has the results of **brute_force_ROI.m** for ever participants
+The folder brute_force_results has the results of **brute_force_ROI.m** for every participants
 
 - To get results such as in '/images/brute_force_results.png': plot(timearray,results)
 - To get variance such as in 'images/variance_brute_force_results.png': plot(timearray,variance(results'))
@@ -96,9 +96,7 @@ The folder brute_force_results has the results of **brute_force_ROI.m** for ever
 
 ## References 
 
-[1] Vu, H., Kim, H.-C., Jung, M., \ Lee, J.-H. (2020). Fmri volume classifcation using
-a 3d convolutional neural network robust to shifted and scaled neuronal activations. NeuroImage, 117328. https://doi.org/10.1016/j.neuroimage.2020.
-117328 (GitHub: https://github.com/bsplku/3dcnn4fmri/tree/master/Python_code)
+[1] Vu, H., Kim, H.-C., Jung, M., \ Lee, J.-H. (2020). Fmri volume classification using a 3d convolutional neural network robust to shifted and scaled neuronal activations. NeuroImage, 117328. https://doi.org/10.1016/j.neuroimage.2020.  (GitHub: https://github.com/bsplku/3dcnn4fmri/tree/master/Python_code)
 
 [2]  WestGrid (www.westgrid.ca) and Compute Canada Calcul Canada (www.computecanada.ca) 
 
