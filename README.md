@@ -6,7 +6,7 @@ This is the repository for my bachelor thesis with the title "Processing fast ev
 Followingly the script of the main pipeline will be described, these are those scripts used to obtain the results presented in the Thesis. 
 All files can be found in the folders cc_cluster_version and CNN. Furthe results obtained from the brute force optimization can be found in the folder brute_force_results.
 
-![pipeline pictue] (https://github.com/htscode/bachelor_thesis_2021/blob/master/images/structure_thesis.png)
+![pipeline pictue](https://github.com/htscode/bachelor_thesis_2021/blob/master/images/structure_thesis.png)
 
 ### SPM preprocessing 
 
