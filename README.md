@@ -6,7 +6,7 @@ This is the repository for my bachelor thesis with the title "Processing fast ev
 Followingly the script of the main pipeline will be described, these are those scripts used to obtain the results presented in the Thesis. 
 All files can be found in the folders cc_cluster_version and CNN. Furthe results obtained from the brute force optimization can be found in the folder brute_force_results.
 
-PUT PIC 
+![pipeline pictue] (https://github.com/htscode/bachelor_thesis_2021/blob/master/images/structure_thesis.png)
 
 ### SPM preprocessing 
 
@@ -24,11 +24,14 @@ PUT PIC
   - **brute_force_ROI.m** - calculate NSMD for a set range of time shifts  
       - **shifttrialsnew.m** -creates a new trial definition for every time shift
       - **voxeldiffROI.m** - compute NSMD for all time shift in every voxel of a ROI
-      
+     
+## Find best shift 
+
+**findshift.m** - Find the best shift from the brute force results using variance, mean and median 
 
 ### Shifting
-
-**shiftwithrest.m** - creates new trial definition base on a time shift input and incoorperates rest as a condition
+**initshiftwithrest.m** - initialize shift with rest condition to optimization computaton 
+ - **shiftwithrest.m** - creates new trial definition base on a time shift input and incoorperates rest as a condition
 
 ### Normalization 
 
@@ -52,7 +55,37 @@ All files used for the convolutional neural network can be found in the folder C
 
 **cnnrequirements.txt** - requirements for running the CNN script on the Cedar division of Compute Canada [2]
 
+## Alternative versions brute force version 
 
+**brute_force_ALL.m** - Brute force optimization variant using all brain voxel 
+  - **allvoxeldiffnew.m** - NSMD calculation for all voxels brute force version
+**brute_force.m** - Brute force optimization variant using one FFA voxel 
+  - **voxeldifferencenew.m** - NSMD calculation for one voxel brute force version
+
+## Alternative optimization 
+
+**simulated_annealing.m** - Attempted unsuccessful simulated annealing with standard parameters 
+ -**optimization.m** - used by **simulated_annealing.m** to enable optimization without a classical function 
+ -**outfun.m** - to monitor simulated annealing 
+
+## Single hardware sytstem version 
+
+The folder single_hardware_version includes, single hardware system versions of the above presented. Note that these versions are for one pariticipant only. 
+
+It further includes the following files: 
+
+**create_roi.m** - creates region of interest based of [4] 
+  - used by **normalize.m* 
+**downhillsimplex.m** - Downhill simplex optimization attempt 
+**forbetterffa.m** - Attempted optimization of the FFA voxel used in single voxel brute force  
+
+## Brute force results 
+
+The folder brute_force_results has the results of **brute_force_ROI.m** for ever participants
+
+- To get results such as in '/images/brute_force_results.png': plot(timearray,results)
+- To get variance such as in 'images/variance_brute_force_results.png': plot(timearray,variance(results'))
+- To get mean or median as in 'images/mean_median_15_brute_force_results.png':  plot(timearray,mean(results,2))
 
 
 ## References 
@@ -64,3 +97,5 @@ a 3d convolutional neural network robust to shifted and scaled neuronal activati
 [2]  WestGrid (www.westgrid.ca) and Compute Canada Calcul Canada (www.computecanada.ca) 
 
 [3] GitHub SPM12 package https://github.com/spm/spm12
+
+[4] Neurosynth, term base meta analysis with the term 'face' https://neurosynth.org/analyses/terms/face/ 
